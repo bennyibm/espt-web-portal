@@ -1,5 +1,7 @@
 package com.epst.document.portal.application.controller
 
+import com.epst.document.portal.application.form.FindOutCertificateForm
+import com.epst.document.portal.common.util.Constant
 import com.epst.document.portal.core.service.QRCodeService
 import org.springframework.http.HttpEntity
 import org.springframework.stereotype.Controller
@@ -19,6 +21,7 @@ class DefaultController(private val qrCodeService: QRCodeService) {
 //        val imgB64 = qrCodeService.generateQRCode("http://gtc.osigrouprdc.com/contact-us")
 //        model.addAttribute("imgData", imgB64)
 
+        model.addAttribute(Constant.FIND_OUT_CERTIFICATE_FORM, FindOutCertificateForm())
         return "home"
     }
 

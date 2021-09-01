@@ -71,41 +71,21 @@
 							<div class="card-body p-5">
 								<h2 class="text-color-secondary font-weight-bold text-7 line-height-1 mb-1">Request a Callback</h2>
 								<p class="custom-font-secondary text-4 pb-1 mb-4">Enter your details in the form and we will call you back.</p>
-								<form class="contact-form custom-form-style-1" action="php/contact-form.php" method="POST">
-									<div class="contact-form-success alert alert-success d-none mt-4">
-										<strong>Success!</strong> Your request has been sent to us.
-									</div>
-
-									<div class="contact-form-error alert alert-danger d-none mt-4">
-										<strong>Error!</strong> There was an error sending your request.
-										<span class="mail-error-message text-1 d-block"></span>
-									</div>
+								<form th:object="${certificateForm}" class="contact-form custom-form-style-1" method="post" action="/find-out-certificate">
 
 									<div class="row">
 										<div class="form-group col pb-1 mb-3">
-											<input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" placeholder="Your Name" required>
+											<input th:field="*{code}" type="text" data-msg-required="Champ obligatoire" maxlength="100" class="form-control"placeholder="Code à 14 chiffres" required>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col pb-1 mb-3">
-											<input type="text" value="" data-msg-required="Please enter your phone number." maxlength="100" class="form-control" name="phone" placeholder="Your Phone Number" required>
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col pb-1 mb-3">
-											<div class="custom-select-1">
-												<select data-msg-required="Please select a service." class="form-control" name="service" required>
-													<option value="" selected>Select Service</option>
-													<option value="Build Services">Building Services</option>
-													<option value="Post Construction">Post Construction</option>
-													<option value="Office Cleaning">Office Cleaning</option>
-												</select>
-											</div>
+											<input th:field="*{fullName}" type="text" data-msg-required="Champ obligatoire" maxlength="100" class="form-control" placeholder="Nom complet" required>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col">
-											<button type="submit" class="btn btn-primary btn-modern font-weight-bold text-3 px-5 py-3" data-loading-text="Loading...">CALL ME BACK</button>
+											<button type="submit" class="btn btn-primary btn-modern font-weight-bold text-3 px-5 py-3" >Checker</button>
 										</div>
 									</div>
 								</form>
@@ -216,86 +196,44 @@
 				</div>
 			</section>
 
-			<section class="section border-0 py-4 m-0">
-				<div class="container">
-					<div class="row align-items-end pb-3 mb-5 mb-lg-4">
-						<div class="col-lg-7 col-xl-8 mb-4 mb-lg-0">
+			<section id="whoweare" class="section section-with-shape-divider bg-transparent border-0 m-0">
+				<div class="shape-divider shape-divider-bottom" style="height: 102px;">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 102" preserveAspectRatio="xMinYMin">
+						<path fill="#F7F7F7" d="M1895,78c-56.71-6.03-113.75-12.1-167-17c-75.42-6.94-133.81-10.66-171-13c-62.1-3.91-108.85-5.97-155-8
+							c-35.96-1.58-78.06-3.42-133-5c-59.81-1.72-103.18-2.23-172-3c-92.17-1.03-154.41-1.01-169-1c-69.05,0.05-115.16,0.67-137,1
+							c-43.08,0.65-76.21,1.48-97,2c-28.02,0.7-71.13,1.8-128,4c-16.64,0.64-57.72,2.28-111,5c-26.12,1.33-67.11,3.45-121,7
+							c-21.14,1.39-54.21,3.59-96,7c-19.93,1.63-39.22,3.32-47,4c-16.12,1.41-33.55,2.94-55,5c-26.48,2.54-19.07,2.04-77,8
+							c-19.39,1.99-36.94,3.77-60.59,7.46V103H1923V81C1916.55,80.3,1906.82,79.26,1895,78z"/>
+					</svg>
+				</div>
+				<div class="container mt-2 mb-5 pb-5">
+					<div class="row align-items-center mb-4">
+						<div class="col-sm-10 col-lg-6 offset-sm-1 ps-sm-5 ps-lg-0">
+							<div class="position-relative">
+								<div data-plugin-float-element data-plugin-options="{'startPos': 'top', 'speed': 0.2, 'transition': true, 'transitionDuration': 1000, 'isInsideSVG': true}">
+									<img src="img/demos/cleaning-services/generic/generic-2.jpg" class="img-fluid rounded-circle custom-box-shadow-1 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1800" alt="" />
+								</div>
+								<div class="position-absolute top-50pct left-50pct transform3dxy-n50" style="left: 25%;">
+									<div data-plugin-float-element data-plugin-options="{'startPos': 'top', 'speed': 0.3, 'transition': true, 'transitionDuration': 1000, 'isInsideSVG': true}">
+										<img src="img/demos/cleaning-services/generic/generic-1.jpg" class="img-fluid rounded-circle custom-box-shadow-1 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1400" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-5 mb-5 mb-lg-0">
 							<div class="d-flex align-items-center mb-2">
 								<span class="custom-line appear-animation" data-appear-animation="customLineAnimation" appear-animation-duration="1s"></span>
 								<div class="overflow-hidden ms-3">
-									<h2 class="text-color-primary font-weight-semibold line-height-3 text-4 mb-0 appear-animation" data-appear-animation="maskRight" data-appear-animation-delay="1000">WHAT WE DO</h2>
+									<h2 class="text-color-primary font-weight-semibold line-height-3 text-4 mb-0 appear-animation" data-appear-animation="maskRight" data-appear-animation-delay="1000">WHO WE ARE</h2>
 								</div>
 							</div>
-							<h3 class="text-color-secondary font-weight-bold text-transform-none text-8 mb-3 pb-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1200">Our Services</h3>
-							<p class="mb-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1400">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. Integer aliquet ullamcorper dolor, quis sollicitudin. Integer aliquet ullamcorper dolor, quis sollicitudin.</p>
-						</div>
-						<div class="col-lg-5 col-xl-4">
-							<div class="d-flex justify-content-lg-end">
-								<a href="demo-cleaning-services-services.html" class="btn btn-primary btn-modern font-weight-bold text-3 btn-px-4 py-3 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1800">VIEW ALL SERVICES</a>
-								<a href="demo-cleaning-services-contact.html" class="btn btn-secondary btn-modern font-weight-bold text-3 btn-px-4 py-3 ms-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1600">BOOK NOW</a>
-							</div>
-						</div>
-					</div>
-					<div class="row appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="2000">
-						<div class="col">
-							<div class="owl-carousel nav-outside nav-arrows-1 custom-carousel-box-shadow-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 3}, '1199': {'items': 3}}, 'autoplay': false, 'autoplayTimeout': 5000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': false, 'margin': 20, 'stagePadding': '75'}">
-								<div>
-									<a href="demo-cleaning-services-services-detail.html" class="text-decoration-none">
-										<div class="card custom-card-style-1">
-											<div class="card-body text-center py-5">
-												<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-													<img src="img/demos/cleaning-services/services/services-small-1.jpg" class="img-fluid rounded-circle" alt="" />
-												</div>
-												<h4 class="custom-card-style-1-title text-color-secondary font-weight-bold mb-2">Building Services</h4>
-												<p class="custom-card-style-1-description">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. </p>
-												<span class="custom-card-style-1-link font-weight-bold">VIEW MORE</span>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div>
-									<a href="demo-cleaning-services-services-detail.html" class="text-decoration-none">
-										<div class="card custom-card-style-1">
-											<div class="card-body text-center py-5">
-												<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-													<img src="img/demos/cleaning-services/services/services-small-2.jpg" class="img-fluid rounded-circle" alt="" />
-												</div>
-												<h4 class="custom-card-style-1-title text-color-secondary font-weight-bold mb-2">Post Construction</h4>
-												<p class="custom-card-style-1-description">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. </p>
-												<span class="custom-card-style-1-link font-weight-bold">VIEW MORE</span>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div>
-									<a href="demo-cleaning-services-services-detail.html" class="text-decoration-none">
-										<div class="card custom-card-style-1">
-											<div class="card-body text-center py-5">
-												<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-													<img src="img/demos/cleaning-services/services/services-small-3.jpg" class="img-fluid rounded-circle" alt="" />
-												</div>
-												<h4 class="custom-card-style-1-title text-color-secondary font-weight-bold mb-2">Office Cleaning</h4>
-												<p class="custom-card-style-1-description">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. </p>
-												<span class="custom-card-style-1-link font-weight-bold">VIEW MORE</span>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div>
-									<a href="demo-cleaning-services-services-detail.html" class="text-decoration-none">
-										<div class="card custom-card-style-1">
-											<div class="card-body text-center py-5">
-												<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-													<img src="img/demos/cleaning-services/services/services-small-1.jpg" class="img-fluid rounded-circle" alt="" />
-												</div>
-												<h4 class="custom-card-style-1-title text-color-secondary font-weight-bold mb-2">Building Services</h4>
-												<p class="custom-card-style-1-description">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. </p>
-												<span class="custom-card-style-1-link font-weight-bold">VIEW MORE</span>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
+							<h3 class="text-color-secondary font-weight-bold text-transform-none line-height-2 text-10 mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1200">
+								Home and Commercial<br>
+								<span class="text-1 d-block">Cleaning Done Right Away</span>
+							</h3>
+							<p class="custom-font-secondary text-4 mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1400">Get reliable & affordable cleaning services for your facility with a 100% satisfaction guaranteed!</p>
+							<p class="pb-1 mb-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1600">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. Integer aliquet ullamcorper dolor, quis sollicitudin.</p>
+							<a href="demo-cleaning-services-about.html" class="btn btn-primary btn-modern font-weight-bold text-3 px-5 py-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1800">VIEW MORE</a>
 						</div>
 					</div>
 				</div>
@@ -361,8 +299,6 @@
 					<div class="row justify-content-center pb-2 mt-2 mb-4">
 						<div class="col-lg-9 text-center">
 							<h2 class="text-color-secondary font-weight-bold text-8 mb-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">Our Process</h2>
-							<p class="custom-font-secondary text-4 mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Get reliable & affordable cleaning services for your facility with a 100% satisfaction guaranteed!</p>
-							<p class="mb-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. Integer aliquet ullamcorper dolor, quis sollicitudin.</p>
 						</div>
 					</div>
 					<div class="featured-boxes featured-boxes-style-4 custom-featured-boxes-style-1">
@@ -405,446 +341,6 @@
 				</div>
 			</section>
 
-			<section class="section border-0 pt-4 pb-3 m-0">
-				<div class="container">
-					<div class="row align-items-end pb-3 mb-5 mb-lg-4">
-						<div class="col-lg-7 col-xl-8 mb-4 mb-lg-0">
-							<div class="d-flex align-items-center mb-2">
-								<span class="custom-line appear-animation" data-appear-animation="customLineAnimation" appear-animation-duration="1s"></span>
-								<div class="overflow-hidden ms-3">
-									<h2 class="text-color-primary font-weight-semibold line-height-3 text-4 mb-0 appear-animation" data-appear-animation="maskRight" data-appear-animation-delay="1000">RECENT WORK</h2>
-								</div>
-							</div>
-							<h3 class="text-color-secondary font-weight-bold text-transform-none text-8 mb-3 pb-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1200">Our Portfolio</h3>
-							<p class="mb-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1400">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non. Integer aliquet ullamcorper dolor, quis sollicitudin. Integer aliquet ullamcorper dolor, quis sollicitudin.</p>
-						</div>
-						<div class="col-lg-5 col-xl-4">
-							<div class="d-flex justify-content-lg-end">
-								<a href="demo-cleaning-services-portfolio.html" class="btn btn-primary btn-modern font-weight-bold text-3 btn-px-4 py-3 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1800">VIEW ALL PORTFOLIO</a>
-								<a href="demo-cleaning-services-contact.html" class="btn btn-secondary btn-modern font-weight-bold text-3 btn-px-4 py-3 ms-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1600">BOOK NOW</a>
-							</div>
-						</div>
-					</div>
-					<div class="row appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="2000">
-						<div class="col">
-							<div class="owl-carousel nav-outside nav-arrows-1 custom-carousel-box-shadow-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 2}, '1199': {'items': 2}}, 'autoplay': false, 'autoplayTimeout': 5000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': false, 'margin': 20, 'stagePadding': '75'}">
-								<div>
-									<a href="demo-cleaning-services-portfolio-detail.html" class="text-decoration-none">
-										<div class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons thumb-info-hide-wrapper-bg">
-											<div class="thumb-info-wrapper overlay overlay-color-secondary">
-												<img src="img/demos/cleaning-services/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-												<div class="thumb-info-action text-center flex-column">
-													<h4 class="text-color-light font-weight-bold text-6 mb-1">Porto Building</h4>
-													<span class="d-block text-color-light font-weight-light">Post Construction</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div>
-									<a href="demo-cleaning-services-portfolio-detail.html" class="text-decoration-none">
-										<div class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons thumb-info-hide-wrapper-bg">
-											<div class="thumb-info-wrapper overlay overlay-color-secondary">
-												<img src="img/demos/cleaning-services/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-												<div class="thumb-info-action text-center flex-column">
-													<h4 class="text-color-light font-weight-bold text-6 mb-1">Porto Office</h4>
-													<span class="d-block text-color-light font-weight-light">Cleaning Office</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div>
-									<a href="demo-cleaning-services-portfolio-detail.html" class="text-decoration-none">
-										<div class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons thumb-info-hide-wrapper-bg">
-											<div class="thumb-info-wrapper overlay overlay-color-secondary">
-												<img src="img/demos/cleaning-services/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-												<div class="thumb-info-action text-center flex-column">
-													<h4 class="text-color-light font-weight-bold text-6 mb-1">Porto Enterprise</h4>
-													<span class="d-block text-color-light font-weight-light">Building Services</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div>
-									<a href="demo-cleaning-services-portfolio-detail.html" class="text-decoration-none">
-										<div class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons thumb-info-hide-wrapper-bg">
-											<div class="thumb-info-wrapper overlay overlay-color-secondary">
-												<img src="img/demos/cleaning-services/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-												<div class="thumb-info-action text-center flex-column">
-													<h4 class="text-color-light font-weight-bold text-6 mb-1">Porto Home</h4>
-													<span class="d-block text-color-light font-weight-light">Cleaning Services</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="section section-with-shape-divider bg-transparent border-0 pb-4 m-0">
-				<div class="shape-divider shape-divider-reverse-x" style="height: 102px;">
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 102" preserveAspectRatio="xMinYMin">
-						<path fill="#F7F7F7" d="M1895,78c-56.71-6.03-113.75-12.1-167-17c-75.42-6.94-133.81-10.66-171-13c-62.1-3.91-108.85-5.97-155-8
-							c-35.96-1.58-78.06-3.42-133-5c-59.81-1.72-103.18-2.23-172-3c-92.17-1.03-154.41-1.01-169-1c-69.05,0.05-115.16,0.67-137,1
-							c-43.08,0.65-76.21,1.48-97,2c-28.02,0.7-71.13,1.8-128,4c-16.64,0.64-57.72,2.28-111,5c-26.12,1.33-67.11,3.45-121,7
-							c-21.14,1.39-54.21,3.59-96,7c-19.93,1.63-39.22,3.32-47,4c-16.12,1.41-33.55,2.94-55,5c-26.48,2.54-19.07,2.04-77,8
-							c-19.39,1.99-36.94,3.77-60.59,7.46V103H1923V81C1916.55,80.3,1906.82,79.26,1895,78z"/>
-					</svg>
-				</div>
-				<div class="container pt-5 mt-5">
-					<div class="row justify-content-center pb-2 mb-3">
-						<div class="col-md-9 col-lg-12 text-center">
-							<h2 class="text-color-secondary font-weight-bold line-height-6 mb-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">Our Team</h2>
-							<p class="custom-font-secondary text-4 mb-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultri.</p>
-						</div>
-					</div>
-					<div class="row appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">
-						<div class="col">
-							<div class="owl-carousel nav-outside nav-arrows-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 3}, '1199': {'items': 3}}, 'autoplay': false, 'autoplayTimeout': 5000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': false, 'margin': 20, 'stagePadding': '75'}">
-								<div>
-									<div class="card custom-card-style-1 custom-card-style-1-variation">
-										<div class="card-body text-center bg-color-light-scale-1 py-5">
-											<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-												<a href="#">
-													<img src="img/demos/cleaning-services/team/team-1.jpg" class="img-fluid rounded-circle" alt="" />
-												</a>
-											</div>
-											<h4 class="text-color-secondary font-weight-bold line-height-1 text-5 mb-0"><a href="#" class="text-color-secondary text-color-hover-primary text-decoration-none">John Doe</a></h4>
-											<p class="text-2 pb-1 mb-2">General Cleaner</p>
-											<ul class="social-icons custom-social-icons social-icons-big">
-												<li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-												<li class="social-icons-twitter mx-2"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-												<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="card custom-card-style-1 custom-card-style-1-variation">
-										<div class="card-body text-center bg-color-light-scale-1 py-5">
-											<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-												<a href="#">
-													<img src="img/demos/cleaning-services/team/team-2.jpg" class="img-fluid rounded-circle" alt="" />
-												</a>
-											</div>
-											<h4 class="text-color-secondary font-weight-bold line-height-1 text-5 mb-0"><a href="#" class="text-color-secondary text-color-hover-primary text-decoration-none">Judie Doe</a></h4>
-											<p class="text-2 pb-1 mb-2">General Cleaner</p>
-											<ul class="social-icons custom-social-icons social-icons-big">
-												<li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-												<li class="social-icons-twitter mx-2"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-												<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="card custom-card-style-1 custom-card-style-1-variation">
-										<div class="card-body text-center bg-color-light-scale-1 py-5">
-											<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-												<a href="#">
-													<img src="img/demos/cleaning-services/team/team-3.jpg" class="img-fluid rounded-circle" alt="" />
-												</a>
-											</div>
-											<h4 class="text-color-secondary font-weight-bold line-height-1 text-5 mb-0"><a href="#" class="text-color-secondary text-color-hover-primary text-decoration-none">Monica Doe</a></h4>
-											<p class="text-2 pb-1 mb-2">General Cleaner</p>
-											<ul class="social-icons custom-social-icons social-icons-big">
-												<li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-												<li class="social-icons-twitter mx-2"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-												<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="card custom-card-style-1 custom-card-style-1-variation">
-										<div class="card-body text-center bg-color-light-scale-1 py-5">
-											<div class="custom-card-style-1-image-wrapper bg-primary rounded-circle d-inline-block mb-3">
-												<a href="#">
-													<img src="img/demos/cleaning-services/team/team-1.jpg" class="img-fluid rounded-circle" alt="" />
-												</a>
-											</div>
-											<h4 class="text-color-secondary font-weight-bold line-height-1 text-5 mb-0"><a href="#" class="text-color-secondary text-color-hover-primary text-decoration-none">John Doe</a></h4>
-											<p class="text-2 pb-1 mb-2">General Cleaner</p>
-											<ul class="social-icons custom-social-icons social-icons-big">
-												<li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-												<li class="social-icons-twitter mx-2"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-												<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="section border-0 pt-4 m-0">
-				<div class="container">
-					<div class="row justify-content-center pb-2 mb-3">
-						<div class="col-md-9 col-lg-12 text-center">
-							<h2 class="text-color-secondary font-weight-bold line-height-6 mb-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">Our Prices</h2>
-							<p class="custom-font-secondary text-4 mb-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultri.</p>
-						</div>
-					</div>
-					<div class="row appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">
-						<div class="col">
-							<div class="owl-carousel nav-outside nav-arrows-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 3}, '1199': {'items': 4}}, 'autoplay': false, 'autoplayTimeout': 5000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': false, 'margin': 20, 'stagePadding': '75'}">
-								<div>
-									<div class="card custom-card-style-1">
-										<div class="card-body text-center py-5 px-4">
-											<h3 class="text-color-primary font-weight-medium text-4 pb-1 mb-4">RESIDENTIAL MAINTENANCE</h3>
-											<div class="price d-flex align-items-end justify-content-center font-weight-bold text-color-dark text-12 line-height-1 pb-1 mb-4">
-												<span class="price-unit font-weight-normal custom-font-size-4 position-relative bottom-6">$</span>
-												69
-											</div>
-											<ul class="list list-unstyled pb-1 mb-4">
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Porter & Matron Service</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Carpet Care Programs</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Floor Care Maintenance</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Sanitize & Decontamination</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">High Dusting</span>
-												</li>
-											</ul>
-											<a href="demo-cleaning-services-contact.html" class="btn btn-secondary btn-modern font-weight-bold text-3 px-5 btn-py-3">BOOK NOW</a>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="card custom-card-style-1">
-										<div class="card-body text-center py-5 px-4">
-											<h3 class="text-color-primary font-weight-medium text-4 pb-1 mb-4">OFFICE CLEANING</h3>
-											<div class="price d-flex align-items-end justify-content-center font-weight-bold text-color-dark text-12 line-height-1 pb-1 mb-4">
-												<span class="price-unit font-weight-normal custom-font-size-4 position-relative bottom-6">$</span>
-												79
-											</div>
-											<ul class="list list-unstyled pb-1 mb-4">
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Porter & Matron Service</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Carpet Care Programs</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Floor Care Maintenance</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Sanitize & Decontamination</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">High Dusting</span>
-												</li>
-											</ul>
-											<a href="demo-cleaning-services-contact.html" class="btn btn-secondary btn-modern font-weight-bold text-3 px-5 btn-py-3">BOOK NOW</a>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="card custom-card-style-1">
-										<div class="card-body text-center py-5 px-4">
-											<h3 class="text-color-primary font-weight-medium text-4 pb-1 mb-4">FACILITY CLEANING</h3>
-											<div class="price d-flex align-items-end justify-content-center font-weight-bold text-color-dark text-12 line-height-1 pb-1 mb-4">
-												<span class="price-unit font-weight-normal custom-font-size-4 position-relative bottom-6">$</span>
-												89
-											</div>
-											<ul class="list list-unstyled pb-1 mb-4">
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Porter & Matron Service</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Carpet Care Programs</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Floor Care Maintenance</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Sanitize & Decontamination</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">High Dusting</span>
-												</li>
-											</ul>
-											<a href="demo-cleaning-services-contact.html" class="btn btn-secondary btn-modern font-weight-bold text-3 px-5 btn-py-3">BOOK NOW</a>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="card custom-card-style-1">
-										<div class="card-body text-center py-5 px-4">
-											<h3 class="text-color-primary font-weight-medium text-4 pb-1 mb-4">BUILDING MAINTENANCE</h3>
-											<div class="price d-flex align-items-end justify-content-center font-weight-bold text-color-dark text-12 line-height-1 pb-1 mb-4">
-												<span class="price-unit font-weight-normal custom-font-size-4 position-relative bottom-6">$</span>
-												99
-											</div>
-											<ul class="list list-unstyled pb-1 mb-4">
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Porter & Matron Service</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Carpet Care Programs</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Floor Care Maintenance</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Sanitize & Decontamination</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">High Dusting</span>
-												</li>
-											</ul>
-											<a href="demo-cleaning-services-contact.html" class="btn btn-secondary btn-modern font-weight-bold text-3 px-5 btn-py-3">BOOK NOW</a>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="card custom-card-style-1">
-										<div class="card-body text-center py-5 px-4">
-											<h3 class="text-color-primary font-weight-medium text-4 pb-1 mb-4">RESIDENTIAL MAINTENANCE</h3>
-											<div class="price d-flex align-items-end justify-content-center font-weight-bold text-color-dark text-12 line-height-1 pb-1 mb-4">
-												69
-												<span class="price-unit font-weight-normal custom-font-size-4 position-relative bottom-6">$</span>
-											</div>
-											<ul class="list list-unstyled pb-1 mb-4">
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Porter & Matron Service</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Carpet Care Programs</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Floor Care Maintenance</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">Sanitize & Decontamination</span>
-												</li>
-												<li class="d-flex align-items-center justify-content-center">
-													<svg fill="none" height="17" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-														<path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
-														<polyline points="23 3 12 14 9 11"/>
-													</svg>
-													<span class="ms-1">High Dusting</span>
-												</li>
-											</ul>
-											<a href="demo-cleaning-services-contact.html" class="btn btn-secondary btn-modern font-weight-bold text-3 px-5 btn-py-3">BOOK NOW</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
 
 			<section class="section section-with-shape-divider overlay overlay-show border-0 m-0" style="background-image: url(img/demos/cleaning-services/backgrounds/background-3.jpg); background-size: cover; background-position: center;">
 				<div class="shape-divider shape-divider-reverse-x" style="height: 102px;">

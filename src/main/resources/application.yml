@@ -24,6 +24,12 @@ service:
       dev: 54817m_SVNKsBewfwkuOksYZNeRu_1JA49gYmmuN7XAGuDasSgj2ao8PLuEF4pb5
       prod: 54817m_SVNKsBewfwkuOksYZNeRu_1JA49gYmmuN7XAGuDasSgj2ao8PLuEF4pb5
 
+  brevets:
+    documents:
+      url : http://localhost:8081/api/v1/documents
+    results :
+      url : http://localhost:8081/api/v1/results
+
 remote:
   maxTotalConnect: 0
   maxConnectPerRoute: 200

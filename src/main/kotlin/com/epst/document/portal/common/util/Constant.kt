@@ -2,6 +2,9 @@ package com.epst.document.portal.common.util
 
 class Constant {
     companion object{
+        const val QR_CODE: String = "qrCodeImg"
+        const val RESPONSE_MODEL: String = "responseModel"
+        const val FIND_OUT_CERTIFICATE_FORM: String = "certificateForm"
         const val LOGIN_UNAUTHORIZED: String = "login unauthorized"
         const val LOGIN_FAILED: String = "loginFailed"
         const val CREDENTIAL : String = "credential"

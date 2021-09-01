@@ -50,6 +50,8 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 "/login",
                 "/register",
                 "/faq",
+                "/authenticate-document",
+                "/find-out-certificate",
                 "/contact").permitAll()
             .anyRequest().authenticated()
             .and().formLogin()
