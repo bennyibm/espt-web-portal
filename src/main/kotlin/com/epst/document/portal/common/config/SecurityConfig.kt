@@ -75,6 +75,6 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     @Throws(Exception::class)
     override fun configure(web: WebSecurity) {
         web.ignoring()
-            .antMatchers("/ajax/**", "/css/**", "/img/**", "/js/**", "/master/**", "/php/**", "/video/**", "/vendor/**")
+            .antMatchers( "/css/**", "/fonts/**", "/images/**", "/js/**", "/php/**", "/scss/**")
     }
 }

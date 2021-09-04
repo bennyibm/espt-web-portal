@@ -1,236 +1,121 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accueil</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
 
-    <!-- Basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="images/favicon.ico">
 
-    <title>EPST | Web Portal</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-    <meta name="keywords" content="epst - attestation - certificat" />
-    <meta name="description" content="portail web epst attestation - document">
+    <!--Material Icon -->
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <!-- Pe-icon-7 icon -->
+    <link rel="stylesheet" type="text/css" href="css/pe-icon-7-stroke.css">
 
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <!-- tinyslider -->
+    <link rel="stylesheet" href="css/tiny-slider.css">
 
-    <!-- Web Fonts  -->
-    <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CRoboto+Slab:300,400,700,900&display=swap" rel="stylesheet" type="text/css">
-
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="vendor/animate/animate.compat.css">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
-    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
-
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/theme-elements.css">
-    <link rel="stylesheet" href="css/theme-blog.css">
-    <link rel="stylesheet" href="css/theme-shop.css">
-
-    <!-- Demo CSS -->
-    <link rel="stylesheet" href="css/demos/demo-cleaning-services.css">
-
-    <!-- Skin CSS -->
-    <link id="skinCSS" rel="stylesheet" href="css/skins/skin-cleaning-services.css">
-
-    <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
-
-    <!-- Head Libs -->
-    <script src="vendor/modernizr/modernizr.min.js"></script>
+    <!-- Custom  Css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 </head>
+
 <body>
+    <!-- START  NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-white fixed-top navbar-custom sticky sticky-light" id="navbar">
+        <div class="container">
 
-<div class="body">
-    <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 85}">
-        <div class="header-body header-body-bottom-border border-top-0">
+            <!-- LOGO -->
+            <a class="navbar-brand logo text-uppercase" href=/>
+                <img src="images/logo.png" class="logo-light" alt="" height="60">
+                <img src="images/logo.png" class="logo-dark" alt="" height="60">
+            </a>
 
-            <div class="header-container container">
-                <div class="header-row">
-                    <div class="header-column">
-                        <div class="header-row">
-                            <div class="header-logo" style="width: 123px; height: 33px;">
-                                <a href="demo-cleaning-services.html">
-                                    <img src="img/demos/cleaning-services/logo.png" class="img-fluid" alt="" style="top: 0px; width: 123px; height: 32px;" width="123" height="32">
-                                </a>
-                            </div>
-                        </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="mdi mdi-menu"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto" id="navbar-navlist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/authenticate-document">Authentifier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/find-out-certificate">Obtenir document</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="/login">Connexion</a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <th:block layout:fragment="page_content">
+
+    </th:block>
+
+    <!--Newsletter-->
+    <div class="mt-5">
+        <div class="search-form">
+            <form action="#">
+                <input type="text" placeholder="Email">
+                <button type="submit" class="btn btn-primary">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+    <!-- START FOOTER -->
+    <section class="bg-footer bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <div class="text-sm-start mt-3 mt-sm-0">
+                        <img src="images/logo.png" alt="" height="40" />
                     </div>
-                    <div class="header-column justify-content-end">
-                        <div class="header-row">
-                            <div class="header-nav header-nav-links">
-                                <div class="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1">
-                                    <nav class="collapse">
-                                        <ul class="nav nav-pills" id="mainNav">
-                                            <li><a href="/" class="nav-link active">Accueil</a></li>
-                                            <li><a href="/faq" class="nav-link">Faq</a></li>
-                                            <li><a href="/contact" class="nav-link">Contactez-nous</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="feature-box feature-box-style-2 align-items-center ms-lg-4">
-                                <div class="feature-box-info ps-2">
-                                    <a class="btn btn-primary" href="/authenticate-document">Authentifier</a>
-                                </div>
-                            </div>
-                            <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-sm-end mt-3 mt-sm-0">
+                        <p class="text-muted mb-0">2021 © Ndjadi App. Design by Ely Kik</p>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
+    <!-- END FOOTER -->
 
-    <div role="main" class="main">
-
-        <th:block layout:fragment="page_content">
-
-        </th:block>
-
-        <footer id="footer" class="footer-reveal bg-color-secondary border-0 mt-0">
-            <!--
-            <div class="container container-xl-custom pt-4 pb-3">
-                <div class="row py-5">
-                    <div class="col-md-4 col-lg-3 mb-4 mb-lg-0">
-                        <h4 class="font-weight-bold ls-0">Our Address</h4>
-                        <ul class="list list-unstyled mb-0">
-                            <li class="mb-1">
-                                12345  Porto Blvd.
-                            </li>
-                            <li class="mb-1">
-                                Suite 1500
-                            </li>
-                            <li class="mb-0">
-                                Los Angeles, California 90000
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4 mb-lg-0">
-                        <h4 class="font-weight-bold ls-0">Our Contacts</h4>
-                        <div class="feature-box feature-box-style-2 align-items-center mb-3">
-                            <div class="feature-box-icon">
-                                <img class="icon-animated" width="45" src="img/demos/cleaning-services/icons/phone.svg" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light'}" />
-                            </div>
-                            <div class="feature-box-info ps-2">
-                                <p class="text-uppercase font-weight-semibold line-height-1 text-2 pb-0 mb-0">CALL US NOW</p>
-                                <a href="tel:+1234567890" class="text-uppercase text-color-light text-color-hover-secondary text-decoration-none text-5 font-weight-bold pb-0">800-123-4567</a>
-                            </div>
-                        </div>
-                        <a href="demo-cleaning-services-contact.html" class="btn btn-primary font-weight-bold px-5 py-3 mb-2">BOOK NOW</a>
-                    </div>
-                    <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
-                        <h4 class="font-weight-bold ls-0">Our Services</h4>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-1">
-                                <a href="demo-cleaning-services-services-detail.html">Building Services</a>
-                            </li>
-                            <li class="mb-1">
-                                <a href="demo-cleaning-services-services-detail.html">Post Construction</a>
-                            </li>
-                            <li class="mb-0">
-                                <a href="demo-cleaning-services-services-detail.html">Office Cleaning</a>
-                            </li>
-                        </ul>
-                        <a href="demo-cleaning-services-services.html" class="btn btn-link font-weight-bold text-decoration-none ps-0">VIEW MORE</a>
-                    </div>
-                    <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
-                        <h4 class="font-weight-bold ls-0">About</h4>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-1">
-                                <a href="demo-cleaning-services-about-us.html">About Us</a>
-                            </li>
-                            <li class="mb-0">
-                                <a href="demo-cleaning-services-contact.html">Send a Message</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-lg-2">
-                        <h4 class="font-weight-bold ls-0">Follow Us</h4>
-                        <ul class="social-icons social-icons-clean social-icons-medium">
-                            <li>
-                                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            -->
-            <div class="footer-copyright bg-color-secondary">
-                <div class="container container-xl-custom pb-4">
-                    <div class="row">
-                        <div class="col opacity-3">
-                            <hr class="my-0 bg-color-light opacity-1">
-                        </div>
-                    </div>
-                    <div class="row py-4 mt-2">
-                        <div class="col-lg-6 text-center text-lg-start mb-3 mb-lg-0">
-                            <a href="demo-cleaning-services.html">
-                                <img alt="Porto" width="115" height="30" src="img/demos/cleaning-services/logo-light.png">
-                            </a>
-                        </div>
-                        <div class="col-lg-6 text-center text-lg-end">
-                            <p class="text-3 mb-0">EPSP . © 2021. All Rights Reserved</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-
-    <!-- Vendor -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
-    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery.validation/jquery.validate.min.js"></script>
-    <script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-    <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
-    <script src="vendor/lazysizes/lazysizes.min.js"></script>
-    <script src="vendor/isotope/jquery.isotope.min.js"></script>
-    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="vendor/vide/jquery.vide.min.js"></script>
-    <script src="vendor/vivus/vivus.min.js"></script>
-
-    <!-- Theme Base, Components and Settings -->
-    <script src="js/theme.js"></script>
-
-    <!-- Current Page Vendor and Views -->
-    <script src="js/views/view.contact.js"></script>
-
-
-    <!-- Demo -->
-    <script src="js/demos/demo-cleaning-services.js"></script>
-
-    <!-- Theme Custom -->
+    <!-- bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- JAVASCRIPTS -->
+    <script src="js/smooth-scroll.polyfills.min.js"></script>
+    <script src="js/gumshoe.polyfills.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <!-- CUSTOM JS -->
+    <script src="js/app.js"></script>
     <script src="js/custom.js"></script>
-
-    <!-- Theme Initialization Files -->
-    <script src="js/theme.init.js"></script>
-
 </body>
+
 </html>
+

@@ -16,7 +16,13 @@ class CheckingController(private val checkingService: CheckingService, private v
     @GetMapping("/authenticate-document")
     fun authenticateDocument() : String{
 
-        return "authenticate-document"
+        return "/features/auth"
+    }
+
+    @GetMapping("/find-out-certificate")
+    fun findOutDocument() : String{
+
+        return "features/verification"
     }
 
     @PostMapping("/authenticate-document")
@@ -27,6 +33,7 @@ class CheckingController(private val checkingService: CheckingService, private v
     }
 
     @PostMapping("/find-out-certificate")
+    @ResponseBody
     fun findOutCertificate(model : Model, @ModelAttribute(Constant.FIND_OUT_CERTIFICATE_FORM) findOutCertificateForm: FindOutCertificateForm) : String{
         val response = checkingService.checkCertificate(findOutCertificateForm)
 
@@ -38,4 +45,5 @@ class CheckingController(private val checkingService: CheckingService, private v
         model.addAttribute(Constant.RESPONSE_MODEL, response)
         return "certificate"
     }
+
 }

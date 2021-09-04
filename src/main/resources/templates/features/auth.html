@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base.html}">
+
+    <body>
+        <th:block layout:fragment="page_content">
+
+            <section class="section-sm bg-light" >
+                <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+                    <div class="mt-4 text-center">
+                       <h2 >Authentifier un document</h2>
+
+                    </div>
+                </div>
+
+                </div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                <div class="col-lg-5">
+                <div class="mt-4 p-4">
+                <img src="images/auth.jpg" class="img-fluid box-shadow" alt="">
+                </div>
+                </div>
+
+                <div class="col-lg-6 offset-lg-1">
+                <div class="mt-4">
+                <div class="custom-form mt-4">
+                <form method="post" name="myForm" onsubmit="return validateForm()">
+                    <p id="error-msg"></p>
+                    <div id="simple-msg"></div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group mt-2">
+                                <input name="name" id="name" type="text" class="form-control"
+                                    placeholder="Entrer le code du document">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-2">
+                        <div class="col-lg-12">
+                            <input type="submit" id="submit" name="send"
+                                class="submitBnt btn btn-rounded btn-primary" value="Authentifier">
+                        </div>
+                    </div>
+                </form>
+                </div>
+                </div>
+                </div>
+
+                </div>
+                </div>
+            </section>
+
+            <!-- certificat valide -->
+
+            <section class="section" id="contact">
+            <div class="container">
+
+            <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="title-box text-center">
+                    <h3 class="title mt-3">Document authentique </h3>
+                </div>
+            </div>
+            </div>
+
+            <div class="row mt-5 pt-4">
+
+
+            <div class="col-lg-8">
+
+                <div class="custom-form mt-4">
+                  <p class="text-muted mb-0">Nom : </p>
+                  <p class="text-muted mb-0">Post-Nom : </p>
+                  <p class="text-muted mb-0">Prénom : </p>
+                  <p class="text-muted mb-0">Pourcentage : </p>
+                  <p class="text-muted mb-0">Année : </p>
+                  <p class="text-muted mb-0">Ecole : </p>
+                </div>
+
+            </div>
+            </div>
+            </div>
+            <!-- END CERTIFICAT VALIDE -->
+
+            <!-- START INVALIDE -->
+            <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="title-box text-center">
+                    <h3 class="title mt-3">Document invalide</h3>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-8">
+
+                <div class="custom-form mt-4">
+                  <p class="text-muted mb-0">Le code que vous avez entrer n'est pas valide ou incorrecte</p>
+
+                </div>
+                <div class="mt-4">
+                        <a href="/find-out-certificate" class="btn btn-primary btn-round"> Réessayer <i
+                                class="mdi mdi-arrow-right ms-1"></i></a>
+                    </div>
+
+            </div>
+
+
+                  </section>
+        </th:block>
+    </body>
+
+</html>
+
