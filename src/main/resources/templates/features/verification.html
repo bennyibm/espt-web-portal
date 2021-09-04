@@ -25,7 +25,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mt-2">
-                                            <label class="invisible" id="code14Error">Code non valide !</label>
+                                            <label class="invisible" id="code14Error" class="text-danger">Code non valide !</label>
                                             <input id="code14" type="text" class="form-control" placeholder="Votre code à 14 chiffres">
                                         </div>
                                     </div>
@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mt-2">
-                                            <label class="invisible" id="docTypeError">Type de document non valide</label>
+                                            <label class="invisible" id="docTypeError" class="text-danger">Type de document non valide</label>
                                             <input id="docType" type="text" class="form-control" value="exetat" readonly>
                                         </div>
                                     </div>
@@ -52,25 +52,27 @@
                 </div>
             </div>
             <!-- doc invalide -->
-            <div class="row justify-content-center">
-            <div class="col-lg-7">
-            <div class="title-box text-center">
-            <h3 class="title mt-3">Document invalide</h3>
-            </div>
-            </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="custom-form mt-4">
-                <p class="text-muted mb-0">Le code que vous avez entrer n'est pas valide ou incorrecte</p>
+            <div id="not-valid">
+                <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="title-box text-center">
+                                <h3 class="title mt-3">Document invalide</h3>
+                            </div>
+                        </div>
                 </div>
-                <div class="mt-4">
-                <a href="/find-out-certificate" class="btn btn-primary btn-round"> Réessayer
-                <i class="mdi mdi-arrow-right ms-1"></i>
-                </a>
+                <div class="col-lg-8">
+                    <div class="custom-form mt-4">
+                        <p class="text-muted mb-0">Le code que vous avez entrer n'est pas valide ou incorrecte</p>
+                    </div>
+                    <div class="mt-4">
+                        <a href="/find-out-certificate" class="btn btn-primary btn-round"> Réessayer
+                            <i class="mdi mdi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-        <section>
+        <section id="payment-zone" class="invisible">
             <!-- START PAIEMENT -->
             <div class="container ml-1">
                 <div class="col-xl-7 col-lg-9 col-md-8">
@@ -78,7 +80,21 @@
                         <h2>Choisissez un mode de paiement</h2>
                     </div>
                 </div>
-                <div class="col-xl-7 col-lg-9 col-md-8" >
+                <div class="row">
+                    <div class="col-md-7">
+
+                        <div class="custom-form mt-4">
+                            <p class="text-muted mb-0">Nom : <span id="resultName"></span></p>
+                            <p class="text-muted mb-0">Post-Nom : <span id="resultLastName"></span></p></p>
+                            <p class="text-muted mb-0">Prénom : <span id="resultFirst"></span></p></p>
+                            <p class="text-muted mb-0">Ecole : <span id="resultSchool"></span></p></p>
+                            <p class="text-muted mb-0">Pourcentage :<span id="resultPrcnt"></span></p> </p>
+                            <p class="text-muted mb-0">Année : <span id="resultYear"></span></p></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-5" >
                     <div class="button-group-area" style="margin:10px" >
                         <a class="col" href="#" ><img src="images/mpesa.jpg" style="margin:10px" /></a>
                         <a class="col" href="#" ><img src="images/orange.jpg" style="margin:10px" /></a>
