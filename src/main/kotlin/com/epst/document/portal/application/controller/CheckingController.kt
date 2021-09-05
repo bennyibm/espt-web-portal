@@ -51,7 +51,7 @@ class CheckingController(private val checkingService: CheckingService,
         val context = WebContext(request, response, servletContext)
 
         context.setVariable(RESULT_EXETAT, result)
-        context.setVariable(QR_CODE, result)
+        context.setVariable(QR_CODE, imgQrCode)
 
         val document : String = templateEngine.process("features/certificate", context)
 
