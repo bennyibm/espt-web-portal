@@ -49,15 +49,16 @@ const processCheckResultForm = (e) =>{
 
                 //the toggle ON/OFF zones
                 document.getElementById("checking-form").classList.add("d-none");
-                document.getElementById("payment-zone").classList.remove("d-none");
+                hideShowPayZones(false);
             }
             else if(result.error){
                 document.getElementById("error-msg").classList.remove("d-none");
-                document.getElementById("payment-zone").classList.add("d-none");
+                hideShowPayZones(true);
             }
         })
         .catch((error) =>{
             console.log("error occurred : ", error);
+            hideShowPayZones(true);
         })
 
 
@@ -67,7 +68,18 @@ const processCheckResultForm = (e) =>{
 
 const showForm = () => {
     document.getElementById("checking-form").classList.remove("d-none");
-    document.getElementById("payment-zone").classList.add("d-none");
+    document.getElementById("code14").value = "";
+    hideShowPayZones(true);
+}
+
+const hideShowPayZones = (hide = true) =>{
+    const payZones = document.getElementsByClassName("payment-zone");
+    for(let i = 0; i < payZones.length; i++) {
+        if(hide == true)
+            payZones[i].classList.add("d-none");
+        else
+            payZones[i].classList.remove("d-none");
+    }
 }
 const download = () =>{
     console.log("request for download the attestation pdf...");

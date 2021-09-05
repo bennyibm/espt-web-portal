@@ -10,7 +10,7 @@
         <section id="checking-form" class="bg-image bg-image-exetat custom-margin-top-100 custom-padding-top-bottom-12">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 d-none d-lg-block">
                         <div class="text-white mt-4">
                             <h1 class="">Help Your Business Growth Up To High Level</h1>
                             <p class="home-subtitle pt-4 mx-auto">Maecenas class semper class semper sollicitudin imperdiet
@@ -23,7 +23,7 @@
                             <h5 class="form-title mb-3 text-center f-w-bold">Rechercher votre certificat</h5>
                             <p  class="d-none" style="opacity: 1;">
                                 <div id="error-msg" class="d-none alert alert-danger">
-                                    *Aucun résultat pour ce code! Réessayez*
+                                    *Aucun résultat pour ce code!*
                                 </div>
                             </p>
                             <form id="checkResultForm" class="registration-form">
@@ -48,22 +48,24 @@
 
             </div>
         </section>
-
-        <section id="payment-zone" class="section d-none mb-5">
-            <div class="container">
+        <!--
+        <section class="payment-zone d-none bg-image bg-image-exetat" style="margin-top : 100px; width:100%; height: auto; padding: 5%; text-align: center;">
                 <div class="row justify-content-center">
-                    <div class="col-lg-7">
+                    <div class="col">
                         <div class="title-box text-center">
-                            <p class="sub-title text-primary f-15 text-uppercase mb-0">Résultat trouvé</p>
-                            <h3 class="title mt-3">Procéder au paiement pour télécharger votre certificat!</h3>
-                            <p>
-                                <button class="btn btn-primary" onclick="showForm();">Rechercher à nouveau</button>
+                            <p class="sub-title text-white f-15 text-uppercase mb-0">
+                                Résultat trouvé
+
                             </p>
                         </div>
                     </div>
                 </div>
+        </section>
+        -->
 
+        <section id="payment-zone" class="payment-zone d-none mb-5" style="margin-top : 100px; padding-top : 70px; padding-bottom : 40px" >
 
+            <div class="container">
                 <div class="row mt-5 pt-4">
                     <div class="col-lg-6 ask-payment" style="text-align : center">
                         <h3>Statut du document</h3>
@@ -73,7 +75,11 @@
                                 Votre document est trouvé!
                             </p>
                             <p>
-                                cliquer sur <a class="btn btn-primary" href="/download-document-pdf">Télécharger le document</a>
+                                <a class="btn btn-primary" href="/download-document-pdf">Télécharger le document</a>
+                                ou
+                                <button class="btn btn-primary" onclick="showForm();">
+                                    Rechercher à nouveau
+                                </button>
                             </p>
                         </div>
                     </div>
