@@ -5,28 +5,28 @@
 // })
 //
 
-const checkResultForm = document.getElementById("checkResultForm")
-checkResultForm.addEventListener("submit", e => processCheckResultForm(e))
+const checkResultForm = document.getElementById("authDocumentForm")
+checkResultForm.addEventListener("submit", e => processAuthDocumentForm(e))
 
-const processCheckResultForm = (e) =>{
+const processAuthDocumentForm= (e) =>{
     e.preventDefault();
-    console.log("initiate checking result");
+    console.log("initiate auth-document resulprocesst");
 
 
-    const url = "/find-out-certificate";
-    const isError = validateFormCheckResultForm();
+    const url = "/authenticate-document";
+    const isError = validateAuthDocumentForm();
     console.log("form is Valid : ", !isError);
     if(!isError){
         //continue and process the checking-flow
 
         const authenticateDocumentRequestDto = {
-            code14 : document.getElementById("code14").value,
-            docType : document.getElementById("docType").value
+            code14 : document.getElementById("code").value,
+            docType : "exetat" // document.getElementById("docType").value
         }
-        console.log("code14 [", authenticateDocumentRequestDto.code14, "] et docType [", authenticateDocumentRequestDto.docType, "]");
+        console.log("code [", authenticateDocumentRequestDto.code, "] et docType [", authenticateDocumentRequestDto.docType, "]");
 
 
-        console.log("processing the checking result")
+        console.log("processing the authentication of document")
         fetch(url, {
                 method : "post",
                 headers : { "Content-Type" : "application/json" },
@@ -49,8 +49,6 @@ const processCheckResultForm = (e) =>{
             else if(result.error){
                 document.getElementById("not-valid").classList.remove("invisible");
                 document.getElementById("payment-zone").classList.add("invisible");
-
-
             }
         })
         .catch((error) =>{
@@ -62,30 +60,21 @@ const processCheckResultForm = (e) =>{
 
 }
 
-const validateFormCheckResultForm = () =>{
+const validateAuthDocumentForm = () =>{
 
-    const code14 = document.getElementById("code14");
-    const docType = document.getElementById("docType");
+    const code = document.getElementById("code");
 
     let error;
     let errorMessage;
 
     //the code14 value error
-    if(code14.value == "" || code14.value.length < 13 ){
+    if(code.value == "" || code.value.length < 13 ){
         error = true;
-        document.getElementById("code14Error").classList.add("invisible");
+        // document.getElementById("code").classList.add("invisible");
     }else{
         error = false;
-        document.getElementById("code14Error").classList.remove("invisible");
+        // document.getElementById("code").classList.remove("invisible");
     }
-    // //the document type value error
-    // if(docType.value = ""){
-    //     error = true;
-    //     document.getElementById("docTypeError").classList.add("invisible");
-    // }else{
-    //     error = error || true;
-    //     document.getElementById("docTypeError").classList.remove("invisible");
-    // }
 
     return error;
 }

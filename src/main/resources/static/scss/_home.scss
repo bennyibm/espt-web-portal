@@ -97,7 +97,7 @@
   }
 }
 
-// HOME 
+// HOME
 .bg-home-2{
   padding: 260px 0 250px 0;
   background-image: url(../images/bg-2.png);
@@ -268,12 +268,15 @@
     border: none;
     border-radius: 0px;
     color: $muted;
-    border-bottom: 1px solid $gray-200;
+    border-bottom: 1px solid #000000;
     box-shadow: none !important;
-    padding-left: 0;
+    padding-left: 10px;
     padding-right: 0;
     &:focus{
       border-color: $primary;
+    }
+    .registration-input-box.readonly {
+      background-color: silver;
     }
   }
 

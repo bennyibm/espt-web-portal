@@ -2,6 +2,13 @@ package com.epst.document.portal.application.controller
 
 import com.epst.document.portal.application.form.SignupForm
 import com.epst.document.portal.common.util.Constant
+import com.epst.document.portal.common.util.Constant.Companion.PAGE_SLUG
+import com.epst.document.portal.common.util.Constant.Companion.PAGE_SLUG_LOGIN
+import com.epst.document.portal.common.util.Constant.Companion.PAGE_SLUG_REGISTER
+import com.epst.document.portal.common.util.Constant.Companion.PAGE_TITLE
+import com.epst.document.portal.common.util.Constant.Companion.PAGE_TITLE_LOGIN
+import com.epst.document.portal.common.util.Constant.Companion.PAGE_TITLE_REGISTER
+import com.epst.document.portal.common.util.Constant.Companion.SIGNUP_FORM
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -19,6 +26,8 @@ class AuthenticationController {
     fun login(model : Model) : String{
         logger.info("requesting signup page ...")
 
+        model.addAttribute(PAGE_TITLE, PAGE_TITLE_LOGIN)
+        model.addAttribute(PAGE_SLUG, PAGE_SLUG_LOGIN)
         return "auth/login"
     }
 
@@ -26,14 +35,16 @@ class AuthenticationController {
     fun signup(model : Model) : String{
         logger.info("requesting signup page ...")
 
+        model.addAttribute(PAGE_TITLE, PAGE_TITLE_REGISTER)
+        model.addAttribute(PAGE_SLUG, PAGE_SLUG_REGISTER)
         //inject empty signup object in the model
-        model.addAttribute(Constant.SIGNUP_FORM, SignupForm())
+        model.addAttribute(SIGNUP_FORM, SignupForm())
 
-        return "auth/register"
+        return "auth/signup"
     }
 
     @PostMapping("/register")
-    fun signup(@ModelAttribute(Constant.SIGNUP_FORM) signupForm : SignupForm) : String {
+    fun signup(@ModelAttribute(SIGNUP_FORM) signupForm : SignupForm) : String {
 
         logger.info("signup a new user, catching post data ...")
 

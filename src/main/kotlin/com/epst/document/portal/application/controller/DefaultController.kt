@@ -25,14 +25,15 @@ class DefaultController(private val qrCodeService: QRCodeService) {
         return "home"
     }
 
-
     @GetMapping("/faq")
-    fun faq() : String{
+    fun faq(model : Model) : String{
+        model.addAttribute(Constant.PAGE_TITLE, Constant.PAGE_TITLE_FAQ)
         return "info/faq"
     }
 
     @GetMapping("/contact")
     fun contact(model : Model) : String{
+        model.addAttribute(Constant.PAGE_TITLE, Constant.PAGE_TITLE_CONTACT)
         return "info/contact"
     }
 }

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Accueil</title>
+    <title th:text="${pageTitle}">page title</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -26,6 +26,7 @@
 
     <!-- Custom  Css -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
 </head>
 
@@ -73,22 +74,25 @@
         </div>
     </nav>
     <!-- END NAVBAR -->
-
+    <section  th:if="${pageSlug != null and pageSlug != 'find-out-certificate'}" style="margin-top : 100px">
+        <div class="bg-home-custom" style="width:100%; height: auto; padding: 5%; text-align: center;">
+            <ul class="breadcrumb-ul">
+                <li id="li-home">
+                    <a class="text-white" href="/">Accueil</a>
+                </li>
+                <li th:text="${pageTitle}">titre de la page</li>
+            </ul>
+        </div>
+    </section>
     <th:block layout:fragment="page_content">
 
     </th:block>
 
-    <!--Newsletter-->
-    <div class="mt-5">
-        <div class="search-form">
-            <form action="#">
-                <input type="text" placeholder="Email">
-                <button type="submit" class="btn btn-primary">S'inscrire</button>
-            </form>
-        </div>
-    </div>
+
+
+
     <!-- START FOOTER -->
-    <section class="bg-footer bg-light">
+    <section class="bg-footer bg-primary fixed-bottom">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-6">
@@ -98,7 +102,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-sm-end mt-3 mt-sm-0">
-                        <p class="text-muted mb-0">2021 © Ndjadi App. Design by Ely Kik</p>
+                        <p class="text-muted text-white mb-0">
+                            2021 © <span class="text-bold">Ndjadi App</span>. <a class="text-white" href="#">Design by Ely Kik </a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -114,7 +120,6 @@
     <script src="js/tiny-slider.js"></script>
     <!-- CUSTOM JS -->
     <script src="js/app.js"></script>
-    <script src="js/custom.js"></script>
 </body>
 
 </html>

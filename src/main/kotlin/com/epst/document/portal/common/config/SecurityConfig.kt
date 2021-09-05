@@ -45,6 +45,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
+        http.headers().frameOptions().sameOrigin()
         http.csrf().disable().authorizeRequests()
             .antMatchers("/",
                 "/login",
@@ -52,6 +53,8 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 "/faq",
                 "/authenticate-document",
                 "/find-out-certificate",
+                "/download-certificate",
+                "/download-document-pdf",
                 "/contact").permitAll()
             .anyRequest().authenticated()
             .and().formLogin()

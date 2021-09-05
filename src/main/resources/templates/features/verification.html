@@ -7,7 +7,7 @@
 <body>
     <th:block layout:fragment="page_content">
 
-        <section class="section-sm bg-light" >
+        <section class="section-sm bg-light mt-2" >
 
             <div class="row align-items-center">
                 <div class="col-lg-5">
@@ -25,7 +25,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mt-2">
-                                            <label class="invisible" id="code14Error" class="text-danger">Code non valide !</label>
+                                            <label id="code14Error" class="invisible text-danger">Code non valide !</label>
                                             <input id="code14" type="text" class="form-control" placeholder="Votre code à 14 chiffres">
                                         </div>
                                     </div>
@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mt-2">
-                                            <label class="invisible" id="docTypeError" class="text-danger">Type de document non valide</label>
+                                            <label id="docTypeError" class="invisible text-danger">Type de document non valide</label>
                                             <input id="docType" type="text" class="form-control" value="exetat" readonly>
                                         </div>
                                     </div>
@@ -90,19 +90,25 @@
                             <p class="text-muted mb-0">Ecole : <span id="resultSchool"></span></p></p>
                             <p class="text-muted mb-0">Pourcentage :<span id="resultPrcnt"></span></p> </p>
                             <p class="text-muted mb-0">Année : <span id="resultYear"></span></p></p>
+                            <p>
+                                <span class="d-none" id="codeDocResult"></span>
+                                <a class="btn btn-primary" href="/download-certificate"> Télécharger l' attestation</a>
+                            </p>
                         </div>
 
                     </div>
                 </div>
                 <div class="col-md-5" >
                     <div class="button-group-area" style="margin:10px" >
-                        <a class="col" href="#" ><img src="images/mpesa.jpg" style="margin:10px" /></a>
-                        <a class="col" href="#" ><img src="images/orange.jpg" style="margin:10px" /></a>
-                        <a class="col" href="#" ><img src="images/airtel.png" style="margin:10px" /></a>
+                        <a class="col align-baseline" href="#" ><img src="images/mpesa.jpg" style="margin:10px" /></a>
+                        <a class="col align-baseline" href="#" ><img src="images/orange.jpg" style="margin:10px" /></a>
+                        <a class="col align-baseline" href="#" ><img src="images/airtel.png" style="margin:10px" /></a>
                     </div>
                 </div>
             </div>
         </section>
+
+        <script src="js/custom/verify-result.js"></script>
 
     </th:block>
 </body>

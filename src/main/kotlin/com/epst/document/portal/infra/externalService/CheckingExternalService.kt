@@ -4,6 +4,7 @@ import com.epst.document.portal.application.controller.DefaultController
 import com.epst.document.portal.application.dto.AuthenticateDocumentRequestDTO
 import com.epst.document.portal.application.dto.AuthenticateDocumentResponse
 import com.epst.document.portal.application.form.FindOutCertificateForm
+import com.epst.document.portal.core.Document
 import com.epst.document.portal.core.ResponseModel
 import com.epst.document.portal.core.ResultExetat
 import com.epst.document.portal.infra.QRCodeRequestDTO
@@ -23,13 +24,14 @@ class CheckingExternalService(private val retryTemplate: RetryTemplate,
 
     private val logger = LoggerFactory.getLogger(CheckingExternalService::class.java)
 
-    fun checkDocument(authenticateDocumentRequestDTO : AuthenticateDocumentRequestDTO) : AuthenticateDocumentResponse {
-        var response = AuthenticateDocumentResponse()
+    fun checkDocument(findOutCertificateForm: FindOutCertificateForm) :  ResponseModel<Document> {
+
+        var response = ResponseModel<Document>();
 
         try {
-            logger.info("requesting the backend-module to checkout the document : $authenticateDocumentRequestDTO")
-            response = retryTemplate.execute(RetryCallback<AuthenticateDocumentResponse, java.lang.Exception> {
-                restTemplate.postForObject(documentBaseUrl, authenticateDocumentRequestDTO, AuthenticateDocumentResponse::class.java)
+            logger.info("requesting the backend-module to checkout the document : $findOutCertificateForm")
+            response = retryTemplate.execute(RetryCallback<ResponseModel<Document>, java.lang.Exception> {
+                restTemplate.postForObject(documentBaseUrl.plus("/checkout"), findOutCertificateForm, ResponseModel<Document>()::class.java)
             })
 
             logger.info("request success with the response : $response")
@@ -37,6 +39,10 @@ class CheckingExternalService(private val retryTemplate: RetryTemplate,
         }
         catch(ex : Exception){
             logger.error("error occurred : " + ex.message)
+            response.content = null
+            response.error = true
+            response.errorMessage = ex.message
+            response.status = 500
         }
 
         return response

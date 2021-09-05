@@ -90,10 +90,22 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+<!--        -->
+<!--        <dependency>-->
+<!--            <groupId>com.pdfcrowd</groupId>-->
+<!--            <artifactId>pdfcrowd</artifactId>-->
+<!--            <version>5.2.0</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.pdfcrowd</groupId>
-            <artifactId>pdfcrowd</artifactId>
-            <version>5.2.0</version>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>kernel</artifactId>
+            <version>7.1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>html2pdf</artifactId>
+            <version>3.0.1</version>
         </dependency>
 
         <dependency>

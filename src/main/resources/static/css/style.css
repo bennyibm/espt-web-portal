@@ -234,7 +234,7 @@ hr {
 }
 
 .bg-primary {
-  background-color: #565ae3 !important;
+  background-color: dodgerblue !important;
 }
 
 .bg-soft-primary {
@@ -260,7 +260,8 @@ hr {
 }
 
 .btn-primary {
-  background: #565ae3;
+  background: dodgerblue;
+  border-radius: 10px;
   border-color: #565ae3 !important;
   color: #ffffff !important;
 }
@@ -833,6 +834,9 @@ hr {
   color: #ffffff !important;
 }
 
+.text-bold{
+  font-weight : bold;
+}
 .border-white {
   color: #ffffff !important;
 }
@@ -1121,7 +1125,30 @@ hr {
   background-image: url(../images/bg-2.png);
   background-position: center;
 }
+.bg-home-custom {
+  padding: 260px 0 250px 0;
+  background-image: url(../images/h1_hero2.png);
+  background-position: center;
+}
+.bg-image{
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+}
 
+.bg-image.bg-image-exetat {
+  background-image: url(../images/custom/exetat-2.jpg);
+}
+
+.custom-margin-top-100{
+  margin-top : 100px;
+}
+.custom-padding-top-bottom-12{
+  padding-top : 12%;
+  padding-bottom : 12%;
+}
 .bg-home-2 .home-desc {
   max-width: 700px;
   margin: 0 auto;
@@ -1282,10 +1309,14 @@ hr {
 }
 
 .bg-home-6 {
-  background-image: url(../images/bg-1.png);
+  background-image: url(../images/custom/exetat-2.jpg) ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   background-position: center;
   position: relative;
-  padding-top: 150px;
+  margin-top: 100px;
 }
 
 .bg-home-6 .home-desc {
