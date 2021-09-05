@@ -8,73 +8,106 @@
 const checkResultForm = document.getElementById("authDocumentForm")
 checkResultForm.addEventListener("submit", e => processAuthDocumentForm(e))
 
-const processAuthDocumentForm= (e) =>{
+const processAuthDocumentForm = (e) =>{
     e.preventDefault();
-    console.log("initiate auth-document resulprocesst");
+    console.log("initiate checking result");
 
 
     const url = "/authenticate-document";
     const isError = validateAuthDocumentForm();
-    console.log("form is Valid : ", !isError);
+    console.log("the form is Valid : ", !isError);
     if(!isError){
         //continue and process the checking-flow
 
         const authenticateDocumentRequestDto = {
-            code14 : document.getElementById("code").value,
-            docType : "exetat" // document.getElementById("docType").value
+            code14 : document.getElementById("code14").value,
+            docType : document.getElementById("docType").value
         }
-        console.log("code [", authenticateDocumentRequestDto.code, "] et docType [", authenticateDocumentRequestDto.docType, "]");
+        console.log("code14 [", authenticateDocumentRequestDto.code14, "] et docType [", authenticateDocumentRequestDto.docType, "]");
 
 
-        console.log("processing the authentication of document")
+        console.log("processing the authentication of document ...")
         fetch(url, {
-                method : "post",
-                headers : { "Content-Type" : "application/json" },
-                body : JSON.stringify(authenticateDocumentRequestDto)
+            method : "post",
+            headers : { "Content-Type" : "application/json" },
+            body : JSON.stringify(authenticateDocumentRequestDto)
         })
-        .then(result => { return result.json();})
-        .then( result => {
-            console.log("result : ", result);
-            if(result.content != null && result.content != undefined && result.content.id != null){
-                document.getElementById("payment-zone").classList.remove("invisible");
-                document.getElementById("not-valid").classList.add("invisible");
+            .then(result => { return result.json();})
+            .then( result => {
+                console.log("result : ", result);
+                if(result.content != null && result.content != undefined && result.content.id != null){
+                    console.log("response : ", response);
 
-                const fullName = result.content.nmsCdt.split(" ");
+                    document.getElementById("error-msg").classList.add("d-none");
+                    //
+                    // const fullName = result.content.nmsCdt.split(" ");
+                    //
+                    // document.getElementById("resultName").innerText = fullName[0];
+                    // document.getElementById("resultFirst").innerText = fullName[1];
+                    // document.getElementById("resultLastName").innerText = fullName[2]
+                    // document.getElementById("resultSchool").innerText = result.content.nmEts
+                    // document.getElementById("resultPrcnt").innerText = result.content.prcnt
+                    // document.getElementById("resultYear").innerText = "2021"
 
-                document.getElementById("resultName").innerText = fullName[0];
-                document.getElementById("resultFirst").innerText = fullName[1];
-                document.getElementById("resultLastName").innerText = fullName[2]
-                document.getElementById("resultSchool").innerText = result.content.nmEts
-            }
-            else if(result.error){
-                document.getElementById("not-valid").classList.remove("invisible");
-                document.getElementById("payment-zone").classList.add("invisible");
-            }
-        })
-        .catch((error) =>{
-            console.log("error occurred : ", error);
-        })
+                    //the toggle ON/OFF zones
+                    document.getElementById("checking-form").classList.add("d-none");
+                    hideShowPayZones(false);
+                }
+                else if(result.error){
+                    document.getElementById("error-msg").classList.remove("d-none");
+                    hideShowPayZones(true);
+                }
+            })
+            .catch((error) =>{
+                console.log("error occurred : ", error);
+                hideShowPayZones(true);
+            })
 
 
     }
 
 }
 
+const showForm = () => {
+    document.getElementById("checking-form").classList.remove("d-none");
+    document.getElementById("code14").value = "";
+    hideShowPayZones(true);
+}
+
+const hideShowPayZones = (hide = true) =>{
+    const payZones = document.getElementsByClassName("payment-zone");
+    for(let i = 0; i < payZones.length; i++) {
+        if(hide == true)
+            payZones[i].classList.add("d-none");
+        else
+            payZones[i].classList.remove("d-none");
+    }
+}
+
 const validateAuthDocumentForm = () =>{
 
-    const code = document.getElementById("code");
+    const code14 = document.getElementById("code14");
+    const docType = document.getElementById("docType");
 
     let error;
     let errorMessage;
 
     //the code14 value error
-    if(code.value == "" || code.value.length < 13 ){
+    if(code14.value == "" || code14.value.length < 13 ){
         error = true;
-        // document.getElementById("code").classList.add("invisible");
+        document.getElementById("code14Error").classList.remove("d-none");
     }else{
         error = false;
-        // document.getElementById("code").classList.remove("invisible");
+        document.getElementById("code14Error").classList.add("d-none");
     }
+    // //the document type value error
+    // if(docType.value = ""){
+    //     error = true;
+    //     document.getElementById("docTypeError").classList.add("d-none");
+    // }else{
+    //     error = error || true;
+    //     document.getElementById("docTypeError").classList.remove("d-none");
+    // }
 
     return error;
 }

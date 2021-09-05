@@ -81,9 +81,7 @@ const hideShowPayZones = (hide = true) =>{
             payZones[i].classList.remove("d-none");
     }
 }
-const download = () =>{
-    console.log("request for download the attestation pdf...");
-}
+
 const validateFormCheckResultForm = () =>{
 
     const code14 = document.getElementById("code14");
