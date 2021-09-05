@@ -1142,6 +1142,10 @@ hr {
   background-image: url(../images/custom/exetat-2.jpg);
 }
 
+.bg-image.bg-image-good {
+  background-image: url(../images/icon/good.png);
+}
+
 .custom-margin-top-100{
   margin-top : 100px;
 }

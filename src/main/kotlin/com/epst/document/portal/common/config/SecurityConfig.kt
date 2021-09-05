@@ -53,7 +53,6 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 "/faq",
                 "/authenticate-document",
                 "/find-out-certificate",
-                "/download-certificate",
                 "/download-document-pdf",
                 "/contact").permitAll()
             .anyRequest().authenticated()
