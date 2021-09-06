@@ -100,11 +100,9 @@ const validateFormCheckResultForm = () =>{
 
     if(code14.value == ""){
         code14Error.innerText = "Champ obligatoire";
-        console.log("champ obligatoire")
     }
     else if(code14.value.length < 14){
-        code14Error.innerText = " * 14 caractères au minimum";
-        console.log("champ obligatoire");
+        code14Error.innerText = " *14 caractères au minimum";
     }
 
     if(error){
