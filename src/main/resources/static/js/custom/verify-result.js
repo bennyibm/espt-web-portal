@@ -27,39 +27,42 @@ const processCheckResultForm = (e) =>{
 
 
         console.log("processing the checking result")
+
+        document.getElementById("error-msg").classList.add("d-none");
+
+
         fetch(url, {
-                method : "post",
-                headers : { "Content-Type" : "application/json" },
-                body : JSON.stringify(authenticateDocumentRequestDto)
+            method : "post",
+            headers : { "Content-Type" : "application/json" },
+            body : JSON.stringify(authenticateDocumentRequestDto)
         })
-        .then(result => { return result.json();})
-        .then( result => {
-            console.log("result : ", result);
-            if(result.content != null && result.content != undefined && result.content.id != null){
-                document.getElementById("error-msg").classList.add("d-none");
+            .then(result => { return result.json();})
+            .then( result => {
+                console.log("result : ", result);
+                if(result.content != null && result.content != undefined && result.content.id != null){
 
-                const fullName = result.content.nmsCdt.split(" ");
+                    const fullName = result.content.nmsCdt.split(" ");
 
-                document.getElementById("resultName").innerText = fullName[0];
-                document.getElementById("resultFirst").innerText = fullName[1];
-                document.getElementById("resultLastName").innerText = fullName[2]
-                document.getElementById("resultSchool").innerText = result.content.nmEts
-                document.getElementById("resultPrcnt").innerText = result.content.prcnt
-                document.getElementById("resultYear").innerText = "2021"
+                    document.getElementById("resultName").innerText = fullName[0];
+                    document.getElementById("resultFirst").innerText = fullName[1];
+                    document.getElementById("resultLastName").innerText = fullName[2]
+                    document.getElementById("resultSchool").innerText = result.content.nmEts
+                    document.getElementById("resultPrcnt").innerText = result.content.prcnt
+                    document.getElementById("resultYear").innerText = "2021"
 
-                //the toggle ON/OFF zones
-                document.getElementById("checking-form").classList.add("d-none");
-                hideShowPayZones(false);
-            }
-            else if(result.error){
+                    //the toggle ON/OFF zones
+                    document.getElementById("checking-form").classList.add("d-none");
+                    hideShowPayZones(false);
+                }
+                else if(result.error){
+                    document.getElementById("error-msg").classList.remove("d-none");
+                    hideShowPayZones(true);
+                }
+            })
+            .catch((error) =>{
+                console.log("error occurred : ", error);
                 document.getElementById("error-msg").classList.remove("d-none");
-                hideShowPayZones(true);
-            }
-        })
-        .catch((error) =>{
-            console.log("error occurred : ", error);
-            hideShowPayZones(true);
-        })
+            })
 
 
     }
@@ -86,26 +89,29 @@ const validateFormCheckResultForm = () =>{
 
     const code14 = document.getElementById("code14");
     const docType = document.getElementById("docType");
+    document.getElementById("code14Error").classList.add("d-none");
 
     let error;
     let errorMessage;
 
     //the code14 value error
-    if(code14.value == "" || code14.value.length < 13 ){
-        error = true;
-        document.getElementById("code14Error").classList.remove("d-none");
-    }else{
-        error = false;
-        document.getElementById("code14Error").classList.add("d-none");
+    const code14Error = document.getElementById("code14Error");
+    error = code14.value == "" || code14.value.length < 14;
+
+    if(code14.value == ""){
+        code14Error.innerText = "Champ obligatoire";
+        console.log("champ obligatoire")
     }
-    // //the document type value error
-    // if(docType.value = ""){
-    //     error = true;
-    //     document.getElementById("docTypeError").classList.add("d-none");
-    // }else{
-    //     error = error || true;
-    //     document.getElementById("docTypeError").classList.remove("d-none");
-    // }
+    else if(code14.value.length < 14){
+        code14Error.innerText = " * 14 caractères au minimum";
+        console.log("champ obligatoire");
+    }
+
+    if(error){
+        code14Error.classList.remove("d-none");
+    }else{
+        code14Error.classList.add("d-none");
+    }
 
     return error;
 }
