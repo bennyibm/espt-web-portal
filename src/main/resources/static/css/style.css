@@ -1138,6 +1138,10 @@ hr {
   object-fit: cover;
 }
 
+.bg-image.bg-image-background {
+  background-image: url(../images/custom/background-new.jpg);
+}
+
 .bg-image.bg-image-exetat {
   background-image: url(../images/custom/exetat-2.jpg);
 }

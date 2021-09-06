@@ -52,6 +52,7 @@ class CheckingController(private val checkingService: CheckingService,
 
         context.setVariable(RESULT_EXETAT, result)
         context.setVariable(QR_CODE, imgQrCode)
+        context.setVariable(CURRENT_DATE, LocalDate.now())
 
         val document : String = templateEngine.process("features/certificate", context)
 
