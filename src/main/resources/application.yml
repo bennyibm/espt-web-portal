@@ -1,23 +1,8 @@
 server:
-  port : 8085
+  port : 8080
 
 service:
 
-  authentication:
-    base:
-      url: https://utils.blthouse.tech/auth-ws/api/v1/users
-    reset:
-      url: https://utils.blthouse.tech/auth-ws/api/v1/users/reset-password
-    update:
-      url: https://utils.blthouse.tech/auth-ws/api/v1/users
-      password:
-        url: https://utils.blthouse.tech/auth-ws/api/v1/users/update-password
-    create:
-      url: https://utils.blthouse.tech/auth-ws/api/v1/users
-    authenticate:
-      url: https://utils.blthouse.tech/auth-ws/api/v1/users/authenticate
-    info:
-      url: https://utils.blthouse.tech/auth-ws/api/v1/users/info?token=%s
   qrCodeApi:
     url: https://api.qr-code-generator.com/v1/create?access-token=54817m_SVNKsBewfwkuOksYZNeRu_1JA49gYmmuN7XAGuDasSgj2ao8PLuEF4pb5
     token:
@@ -26,9 +11,9 @@ service:
 
   brevets:
     documents:
-      url : http://localhost:8082/api/v1/documents
+      url : http://localhost:8081/api/v1/documents
     results :
-      url : http://localhost:8082/api/v1/results
+      url : http://localhost:8081/api/v1/results
 
 remote:
   maxTotalConnect: 0

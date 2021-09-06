@@ -66,7 +66,6 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
             .permitAll().and()
             .logout().logoutUrl("/logout")
 
-        logger.info(http.toString())
     }
 
 //    @Bean
