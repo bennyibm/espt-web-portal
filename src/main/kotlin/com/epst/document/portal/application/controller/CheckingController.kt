@@ -80,7 +80,7 @@ class CheckingController(private val checkingService: CheckingService,
         model.addAttribute(PAGE_TITLE, PAGE_TITLE_AUTHENTICATE_DOCUMENT)
         model.addAttribute(PAGE_SLUG, PAGE_SLUG_AUTHENTICATE_DOCUMENT)
 
-        return "/features/auth"
+        return "features/auth"
     }
 
     @GetMapping("/download-certificate")
