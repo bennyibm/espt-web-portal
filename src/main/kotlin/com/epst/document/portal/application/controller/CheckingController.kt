@@ -17,6 +17,7 @@ import com.epst.document.portal.core.Document
 import com.epst.document.portal.core.ResponseModel
 import com.epst.document.portal.core.ResultExetat
 import com.epst.document.portal.core.service.CheckingService
+import com.epst.document.portal.core.service.DocumentService
 import com.epst.document.portal.core.service.QRCodeService
 import com.itextpdf.html2pdf.ConverterProperties
 import com.itextpdf.html2pdf.HtmlConverter
@@ -39,6 +40,7 @@ import javax.servlet.http.HttpServletResponse
 @Controller
 class CheckingController(private val checkingService: CheckingService,
                          private val qrCodeService: QRCodeService,
+                         private val documentService : DocumentService,
                          private val servletContext: ServletContext, private val templateEngine : TemplateEngine
 ) {
 
@@ -65,6 +67,8 @@ class CheckingController(private val checkingService: CheckingService,
         val bytes: ByteArray = target.toByteArray()
 
         val filename = result.hashCode()
+
+        documentService.save(result, Constant.DEFAULT_DOCUMENT_TYPE)
 
         return ResponseEntity.ok()
             .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=$filename.pdf")

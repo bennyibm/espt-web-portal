@@ -2,6 +2,7 @@ package com.epst.document.portal.common.util
 
 class Constant {
     companion object{
+        const val DEFAULT_DOCUMENT_TYPE: String = "certificat"
         const val PAGE_TITLE_VERIFY_RESULT = "Vérifier un résultat"
         const val PAGE_SLUG_VERIFY_RESULT = "find-out-certificate"
         const val PAGE_TITLE_AUTHENTICATE_DOCUMENT = "Authentifier un document"
