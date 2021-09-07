@@ -32,28 +32,27 @@ const processAuthDocumentForm = (e) =>{
             headers : { "Content-Type" : "application/json" },
             body : JSON.stringify(authenticateDocumentRequestDto)
         })
-            .then(result => { return result.json();})
-            .then( result => {
-                console.log("result : ", result);
-                if(result.content != null && result.content != undefined && result.content.id != null){
-                    console.log("response : ", response);
+            .then(response => { return response.json();})
+            .then( response => {
+                console.log("response : ", response);
+                if(response.content != null && response.content != undefined && response.content.id != null){
 
                     document.getElementById("error-msg").classList.add("d-none");
-                    //
-                    // const fullName = result.content.nmsCdt.split(" ");
-                    //
-                    // document.getElementById("resultName").innerText = fullName[0];
-                    // document.getElementById("resultFirst").innerText = fullName[1];
-                    // document.getElementById("resultLastName").innerText = fullName[2]
-                    // document.getElementById("resultSchool").innerText = result.content.nmEts
-                    // document.getElementById("resultPrcnt").innerText = result.content.prcnt
-                    // document.getElementById("resultYear").innerText = "2021"
+
+                    const fullName = response.content.results.nmsCdt.split(" ");
+
+                    document.getElementById("resultName").innerText = fullName[0];
+                    document.getElementById("resultFirst").innerText = fullName[1];
+                    document.getElementById("resultLastName").innerText = fullName[2]
+                    document.getElementById("resultSchool").innerText = response.content.results.nmEts
+                    document.getElementById("resultPrcnt").innerText = response.content.results.prcnt
+                    document.getElementById("resultYear").innerText = "2021"
 
                     //the toggle ON/OFF zones
                     document.getElementById("checking-form").classList.add("d-none");
                     hideShowPayZones(false);
                 }
-                else if(result.error){
+                else if(response.error){
                     document.getElementById("error-msg").classList.remove("d-none");
                     hideShowPayZones(true);
                 }

@@ -16,8 +16,14 @@ class CheckingManager(private val checkingExternalService : CheckingExternalServ
 
     private val logger = LoggerFactory.getLogger(CheckingManager::class.java)
     override fun checkDocument(findOutCertificateForm: FindOutCertificateForm): ResponseModel<Document> {
-        return checkingExternalService.checkDocument(findOutCertificateForm)
+        val response =  checkingExternalService.checkDocument(findOutCertificateForm)
 
+        if(response.content != null) {
+            val linkedHashMap = response.content as LinkedHashMap<String, String>
+            response.content = Document.mapToRealDocument(linkedHashMap)
+        }
+
+        return response
     }
 
     override fun checkCertificate(findOutCertificateForm: FindOutCertificateForm): ResponseModel<ResultExetat> {

@@ -18,6 +18,7 @@ class DocumentManager(private val documentExternalService : DocumentExternalServ
     override fun save(result: ResultExetat, type : String): ResponseModel<Document?> {
         val document = Document()
         document.type = type
+        document.ref = result.cdCdt
         document.results =  result
         document.generated = Date.valueOf(LocalDate.now())
 
