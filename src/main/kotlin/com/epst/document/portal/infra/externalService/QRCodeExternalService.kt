@@ -23,7 +23,7 @@ class QRCodeExternalService(private val retryTemplate: RetryTemplate,
             logger.info("in generateQRCode method, try to contact the remote api...")
 
             val response = retryTemplate.execute(RetryCallback<ByteArray, java.lang.Exception>{
-                restTemplate.postForObject(baseUrl,qrCodeRequestDto,ByteArray::class.java)
+                restTemplate.postForObject("https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrCodeRequestDto.qr_code_text}",null,ByteArray::class.java)
             })
 
             logger.info("response from remote service : $response")

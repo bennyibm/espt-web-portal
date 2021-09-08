@@ -48,7 +48,7 @@ class CheckingController(private val checkingService: CheckingService,
      fun getPDF(@SessionAttribute(RESULT_EXETAT) result : ResultExetat, request: HttpServletRequest?, response: HttpServletResponse?): ResponseEntity<*>? {
 
 
-        val imgQrCode = qrCodeService.generateQRCode("icashbs.com")
+        val imgQrCode = qrCodeService.generateQRCode("http://192.168.1.107:8080/authenticate-document?code=${result.cdCdt}")
 
         val context = WebContext(request, response, servletContext)
 

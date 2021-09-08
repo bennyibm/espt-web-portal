@@ -28,9 +28,9 @@ service:
 
   brevets:
     documents:
-      url : http://localhost:8081/api/v1/documents
+      url : http://46.101.189.68:8081/api/v1/documents
     results :
-      url : http://localhost:8081/api/v1/results
+      url : http://46.101.189.68:8081/api/v1/results
 
 remote:
   maxTotalConnect: 0
