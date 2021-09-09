@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base.html}">
+
+
+    <body>
+        <th:block layout:fragment="page_content">
+
+            <section id="checking-form" class="bg-image bg-image-background custom-margin-top-100 custom-padding-top-bottom-12">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-5 offset-lg-1">
+                            <div class="home-registration-form bg-white mt-4">
+                                <h5 class="form-title mb-3 text-center f-w-bold">Authentifier un document</h5>
+                                <p  class="d-none" style="opacity: 1;">
+                                <div id="error-msg" class="d-none alert alert-danger">
+                                    *Aucun document pour ce code!*
+                                </div>
+                                <div id="success-msg" class="d-none alert alert-success">
+                                    *Ce document est bien authentique!*
+                                </div>
+                                </p>
+                                <form id="authDocumentForm" class="registration-form">
+                                    <label class="text-muted">
+                                        Code du document
+                                        <span id="code14Error" class="d-none text-danger" th:text="${' non valid!'}"> non valide!</span>
+                                    </label>
+                                    <input type="text" id="code14" class="form-control mb-3 registration-input-box"  style="padding-left : 10px;">
+                                    <label class="text-muted">
+                                        Type de document
+                                        <span id="docTypeError" class="d-none text-danger" th:text="${' non valid!'}"> non valide!</span>
+                                    </label>
+                                    <input type="text" id="docType" class="form-control mb-3 registration-input-box readonly" style="padding-left : 10px;" readonly value="CERTIFICAT">
+
+                                    <button type="submit" class="btn btn-primary w-100 mt-3">Rechercher</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="text-white mt-4">
+                                <h1 class="">Help Your Business Growth Up To High Level</h1>
+                                <p class="home-subtitle pt-4 mx-auto">Maecenas class semper class semper sollicitudin imperdiet
+                                    aliquam vehicula tempor auctor bibendum turpis ut pede aenean ornare.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="payment-zone" class="payment-zone d-none mb-5" style="margin-top : 100px; padding-top : 70px; padding-bottom : 40px" >
+                <div class="container">
+                    <div class="row mt-5 pt-4">
+                        <div class="col-lg-6 ask-payment" style="text-align : center">
+                            <h3>Statut du document</h3>
+                            <div>
+                                <img src="images/icon/good.png" style="width : 200px; height : 200px; object-fit: cover;"/>
+                                <p class="text-primary">
+                                    Votre document est trouvé!
+                                </p>
+                                <p>
+                                    <button class="btn btn-primary" onclick="showForm();">
+                                        Authentifier un autre
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 result-details">
+                            <h3>Détails du résultat</h3>
+                            <div>
+                                <p class="field">
+                                    <span class="field-title">Nom</span>
+                                    <span class="field-value-separator">:</span>
+                                    <span class="field-value" id="resultName"></span>
+                                </p>
+                                <p class="field">
+                                    <span class="field-title">Postnom</span>
+                                    <span class="field-value-separator">:</span>
+                                    <span class="field-value" id="resultLastName"></span>
+                                </p>
+                                <p class="field">
+                                    <span class="field-title">Prenom</span>
+                                    <span class="field-value-separator">:</span>
+                                    <span class="field-value" id="resultFirst"></span>
+                                </p>
+                                <p class="field">
+                                    <span class="field-title">Pourcentage</span>
+                                    <span class="field-value-separator">:</span>
+                                    <span class="field-value" id="resultPrcnt"></span>%
+                                <p class="field">
+                                    <span class="field-title">Ecole</span>
+                                    <span class="field-value-separator">:</span>
+                                    <span class="field-value" id="resultSchool"></span>
+                                </p>
+                                </p>
+                                <p class="field">
+                                    <span class="field-title">Session</span>
+                                    <span class="field-value-separator">:</span>
+                                    <span class="field-value" id="resultYear"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <script src="js/custom/auth-document.js"></script>
+
+        </th:block>
+    </body>
+
+</html>
+

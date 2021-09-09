@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${pageTitle}">page title</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+    <!--Material Icon -->
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+
+    <!-- Pe-icon-7 icon -->
+    <link rel="stylesheet" type="text/css" href="css/pe-icon-7-stroke.css">
+
+    <!-- tinyslider -->
+    <link rel="stylesheet" href="css/tiny-slider.css">
+
+    <!-- Custom  Css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+</head>
+
+<body>
+    <!-- START  NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-white fixed-top navbar-custom sticky sticky-light" id="navbar">
+        <div class="container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand logo text-uppercase" th:href="@{/}"/>
+                <img src="images/logo.png" class="logo-light" alt="" height="60">
+                <img src="images/logo.png" class="logo-dark" alt="" height="60">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="mdi mdi-menu"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto" id="navbar-navlist">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/authenticate-document">Authentifier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/find-out-certificate">Obtenir document</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+					<li class="nav-item">
+                        <a class="btn btn-primary" style="background-color : dodgerblue !important; color : white !important; font-weight: bold" href="javascript:void(0);">Connexion</a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <section  th:if="${pageSlug != null and pageSlug != 'find-out-certificate' and pageSlug != 'authenticate-document' and pageSlug != 'home'}" style="margin-top : 100px">
+        <div class="bg-home-custom" style="width:100%; height: auto; padding: 5%; text-align: center;">
+            <ul class="breadcrumb-ul">
+                <li id="li-home">
+                    <a class="text-white" href="/">Accueil</a>
+                </li>
+                <li th:text="${pageTitle}">titre de la page</li>
+            </ul>
+        </div>
+    </section>
+    <th:block layout:fragment="page_content">
+
+    </th:block>
+
+
+
+
+    <!-- START FOOTER -->
+    <section class="bg-footer bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <div class="text-sm-start mt-3 mt-sm-0">
+                        <img src="images/logo.png" alt="" height="40" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-sm-end mt-3 mt-sm-0">
+                        <p class="text-muted text-white mb-0">
+                            2021 © <span class="text-bold">Ndjadi App</span>. <a class="text-white" href="#">Design by Ely Kik </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END FOOTER -->
+
+    <!-- bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- JAVASCRIPTS -->
+    <script src="js/smooth-scroll.polyfills.min.js"></script>
+    <script src="js/gumshoe.polyfills.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <!-- CUSTOM JS -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
+

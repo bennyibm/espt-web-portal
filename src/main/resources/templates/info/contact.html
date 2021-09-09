@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base.html}">
+
+<head>
+    <title>Contactez nous</title>
+</head>
+
+<body>
+    <th:block layout:fragment="page_content">
+        <section class="section" >
+            <div class="container">
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="title-box text-center">
+                            <p class="sub-title text-primary f-15 text-uppercase mb-0">Contactez-nous</p>
+                            <h3 class="title mt-3">Laissez-nous un message!</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 pt-4">
+                    <div class="col-lg-4">
+
+                        <div class="d-flex mt-4">
+                            <div class="contact-img me-3">
+                                <img src="images/icon/call.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-muted mb-0"> +243 814 456 624</p>
+                                <p class="text-muted mb-0"> +243 999 456 624</p>
+
+
+                            </div>
+                        </div>
+
+                        <div class="d-flex mt-4">
+                            <div class="contact-img me-3">
+                                <img src="images/icon/postal.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-muted mb-0"> contact@app.com</p>
+                                <p class="text-muted mb-0"> client@app.com</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mt-4">
+                            <div class="contact-img me-3">
+                                <img src="images/icon/placeholder.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-muted mb-0"> Blvrd 30 Juin, Gombe - Kinshasa</p>
+                            </div>
+                        </div>
+
+
+                        <div class="contact-social mt-4 pt-2">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a href="" class="text-reset"><i class="mdi mdi-facebook"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="" class="text-reset"><i class="mdi mdi-twitter"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="" class="text-reset"><i class="mdi mdi-google"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="" class="text-reset"><i class="mdi mdi-pinterest"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-8">
+
+                        <div class="custom-form mt-4">
+                            <form method="post" name="myForm" onsubmit="return validateForm()">
+                                <p id="error-msg"></p>
+                                <div id="simple-msg"></div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group mt-2">
+                                            <input name="name" id="name" type="text" class="form-control"
+                                                placeholder="Votre nom">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group mt-2">
+                                            <input name="email" id="email" type="email" class="form-control"
+                                                placeholder="Votre email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group mt-2">
+                                            <textarea name="comments" id="comments" rows="4" class="form-control"
+                                                placeholder="Votre message..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-lg-12">
+                                        <input type="submit" id="submit" name="send"
+                                            class="submitBnt btn btn-rounded btn-primary" value="Envoyer Message">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </section>
+    </th:block>
+</body>
+
+</html>

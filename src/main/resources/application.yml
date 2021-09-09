@@ -1,0 +1,50 @@
+server:
+  port : 8080
+
+service:
+
+
+  authentication:
+    base:
+      url: https://utils.blthouse.tech/auth-ws/api/v1/users
+    reset:
+      url: https://utils.blthouse.tech/auth-ws/api/v1/users/reset-password
+    update:
+      url: https://utils.blthouse.tech/auth-ws/api/v1/users
+      password:
+        url: https://utils.blthouse.tech/auth-ws/api/v1/users/update-password
+    create:
+      url: https://utils.blthouse.tech/auth-ws/api/v1/users
+    authenticate:
+      url: https://utils.blthouse.tech/auth-ws/api/v1/users/authenticate
+    info:
+      url: https://utils.blthouse.tech/auth-ws/api/v1/users/info?token=%s
+
+  qrCodeApi:
+    url: https://api.qr-code-generator.com/v1/create?access-token=54817m_SVNKsBewfwkuOksYZNeRu_1JA49gYmmuN7XAGuDasSgj2ao8PLuEF4pb5
+    token:
+      dev: 54817m_SVNKsBewfwkuOksYZNeRu_1JA49gYmmuN7XAGuDasSgj2ao8PLuEF4pb5
+      prod: 54817m_SVNKsBewfwkuOksYZNeRu_1JA49gYmmuN7XAGuDasSgj2ao8PLuEF4pb5
+
+  brevets:
+    documents:
+      url : http://46.101.189.68:8081/api/v1/documents
+    results :
+      url : http://46.101.189.68:8081/api/v1/results
+
+remote:
+  maxTotalConnect: 0
+  maxConnectPerRoute: 200
+  connectTimeout: 2000
+  readTimeout: 6000
+spring:
+  retry:
+    backOffPolicy: 4000
+    maxAttempts: 2
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+  redis:
+    timeout: 60000
+

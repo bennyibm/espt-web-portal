@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base.html}">
+
+    <body>
+
+        <th:block layout:fragment="page_content">
+            <section class="bg-image bg-image-background" style="margin-top : 100px " id="home">
+                <section class="home-slider" id="home-slider">
+                    <div class="container">
+                        <div class="row">
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="home-center">
+                                            <div class="home-desc-center">
+                                                <div class="container">
+                                                    <div class="row align-items-center justify-content-center">
+                                                        <div class="col-lg-8">
+                                                            <div class="home-content text-center">
+                                                                <h1 class="home-title text-white">Bienvenue dans Ndjadi App</h1>
+                                                                <p class="home-desc mt-4 f-17 text-white">
+                                                                    Authentifier ou imprimer un document scolaire en toute sécurité.
+                                                                </p>
+                                                                <div class="mt-4">
+                                                                    <a href=/authenticate-document class="btn btn-primary btn-round me-3 mt-4">
+                                                                        Authentifier
+                                                                        <i class="mdi mdi-arrow-right ms-1"></i>
+                                                                    </a>
+
+                                                                    <a href="/find-out-certificate" class="btn btn-info btn-round mt-4">Imprimer document
+                                                                        <span class="play-shadow ms-1" data-bs-toggle="modal" data-bs-target="#watchvideomodal">
+                                                                            <span class="home-btn">
+                                                                                <i class="mdi mdi-play text-center"></i>
+                                                                            </span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <div class="home-center">
+                                            <div class="home-desc-center">
+                                                <div class="container">
+                                                    <div class="row align-items-center justify-content-center">
+                                                        <div class="col-lg-12">
+                                                            <div class="home-content text-center">
+                                                                <h1 class="home-title text-white">Document sécurisé et certifié</h1>
+                                                                <p class="home-desc mt-4 f-17 text-white">
+                                                                    Tous le document que vous imprimer est reconnu par l'Etat congolais et partout dans le monde
+                                                                </p>
+                                                                <div class="mt-4">
+                                                                    <a href=/authenticate-document class="btn btn-primary btn-round me-3 mt-4">
+                                                                        Authentifier
+                                                                        <i class="mdi mdi-arrow-right ms-1"></i>
+                                                                    </a>
+
+                                                                    <a href="/find-out-certificate" class="btn btn-info btn-round mt-4">Imprimer
+                                                                        <span>
+                                                                            <span class="home-btn"></span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade bd-example-modal-lg" id="watchvideomodal" data-keyboard="false" tabindex="-1"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+                            <div class="modal-content home-modal">
+                                <div class="modal-header border-0">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <video id="VisaChipCardVideo" class="video-box" controls>
+                                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                    <!--Browser does not support <video> tag -->
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- END HOME -->
+                <!-- START SERVICES -->
+                <!-- END SERVICES -->
+
+                <!-- START FEATURES -->
+                <section class="section-sm bg-light" >
+                    <div class="container">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-5">
+                                <div class="mt-4 p-4">
+                                    <img src="images/exetat.jpg" class="img-fluid box-shadow" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 offset-lg-1">
+                                <div class="mt-4">
+                                    <h2>Certificat Sécurisé</h2>
+
+
+                                    <p class="text-muted mt-4">Grace à notre vaste base de donnée et notre collaboration avec le gouvernement congolais, nous mettons à votre disposition un outil d'authentification de certificat et diplome de fin d'etude sécondaire.</p>
+
+
+
+                                    <div class="mt-4">
+                                        <a href="/find-out-certificate" class="btn btn-primary btn-round"> Imprimer <i class="mdi mdi-arrow-right ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center mt-4">
+
+
+
+                            <div class="col-lg-6">
+                                <div class="mt-4">
+                                    <h2>Authentification</h2>
+
+                                    <p class="text-muted mt-4">Grace à notre vaste base de donnée et notre collaboration avec le gouvernement congolais, nous mettons à votre disposition un outil d'authentification de certificat et diplome de fin d'etude sécondaire.</p>
+
+
+
+                                    <div class="mt-4">
+                                        <a href=/authenticate-document class="btn btn-primary btn-round"> Authentifier <i
+                                                class="mdi mdi-arrow-right ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 offset-lg-1">
+                                <div class="mt-4 p-4">
+                                    <img src="images/auth.jpg" class="img-fluid box-shadow" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+                <!-- END FEATURES -->
+            </section>
+        </th:block>
+    </body>
+
+</html>
+
